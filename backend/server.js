@@ -2,6 +2,7 @@ const express = require("express");
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require("path");
 
 const { DATABASE_CONFIG } = require("./database/config");
 const { DatabaseQuery } = require("./database/query");
@@ -14,6 +15,7 @@ const databaseQuery = new DatabaseQuery()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(cors());
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 conn.connect();
 
@@ -45,6 +47,10 @@ app.post('/change-lead-stage', (req, res) => {
     } catch (error) {
         console.log(error);
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/public", "index.html"))
 });
 
 app.listen(port, error => {
