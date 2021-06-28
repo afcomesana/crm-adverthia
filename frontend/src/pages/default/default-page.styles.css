@@ -1,0 +1,11 @@
+.default-page {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.search-icon {
+    color: #363a55;
+    font-size: 8rem;
+    margin: 0 auto;
+}

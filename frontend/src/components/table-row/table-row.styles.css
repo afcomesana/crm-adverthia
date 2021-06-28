@@ -1,0 +1,12 @@
+.table-row.dark {
+    background-color: #1d1f2e;
+}
+
+.table-row-item {
+    padding: 5px 15px;
+    height: 60px;
+}
+
+.border-right {
+    border-right: 1px solid rgba(255, 255, 255, 0.267);
+}

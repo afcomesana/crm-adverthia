@@ -1,0 +1,27 @@
+.google-sign-in {
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    vertical-align: middle;
+    font-size: 18px;
+    color: white;
+    transition: all ease .3s;
+    margin: 0 auto;
+}
+
+.google-sign-in:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+}
+
+.google-sign-in img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+.google-sign-in p {
+    margin: auto 10px auto 0;
+}

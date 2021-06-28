@@ -1,0 +1,7 @@
+.sign-in-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    height: 60vh;
+}
