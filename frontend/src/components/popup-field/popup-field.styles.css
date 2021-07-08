@@ -17,6 +17,7 @@
 
 .popup-input input, .popup-textarea textarea {
     background: none;
+    font-weight: inherit;
     color: white;
     border: none;
     border-bottom: 1px solid #31344d;

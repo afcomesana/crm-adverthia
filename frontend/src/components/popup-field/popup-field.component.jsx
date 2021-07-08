@@ -2,7 +2,7 @@ import React from 'react';
 
 import './popup-field.styles.css';
 
-import { Select, MenuItem } from '@material-ui/core'
+import { Select, MenuItem } from '@material-ui/core';
 
 const PopupField = ({ name, value, type, label, handleChange }) => {
     switch (type) {
