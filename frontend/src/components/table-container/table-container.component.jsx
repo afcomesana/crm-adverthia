@@ -5,12 +5,14 @@ import './table-container.styles.css';
 import TableHeader from '../table-header/table-header.component';
 import TableBody from '../table-body/table-body.component';
 import EmptyLeads from '../empty-leads/empty-leads.component';
+import { SpinnerOverlay, SpinnerContainer } from '../spinner/spinner.component';
 
 const TableContainer = ({ data }) => {
-    console.log(data);
     return (
         !data ? (
-            <h1>Cargando...</h1>
+            <SpinnerOverlay>
+                <SpinnerContainer />
+            </SpinnerOverlay>
         ) : data.isAxiosError ? (
             <h1>Error al conectar con el servidor</h1>
         ) : data.length > 0 ? (

@@ -1,5 +1,4 @@
 import { createSelector } from 'reselect';
-import { createUserProfileDocument } from '../../firebase/firebase.utils';
 
 export const selectLead = state => state.lead;
 

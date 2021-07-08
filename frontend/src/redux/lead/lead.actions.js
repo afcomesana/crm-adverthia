@@ -27,3 +27,17 @@ export const changeStageFailure = error => ({
     type: leadActionTypes.CHANGE_STAGE_FAILURE,
     payload: error.message
 });
+
+export const updateLeadStart = lead => ({
+    type: leadActionTypes.UPDATE_LEAD_START,
+    payload: lead
+});
+
+export const updateLeadSuccess = () => ({
+    type: leadActionTypes.UPDATE_LEAD_SUCCESS
+});
+
+export const updateLeadError = error => ({
+    type: leadActionTypes.UPDATE_LEAD_FAILURE,
+    payload: error
+});

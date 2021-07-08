@@ -1,21 +1,29 @@
 import React from 'react';
 
 import './table-row.styles.css';
-
 import columns from '../../data.columns';
 
 import StageField from '../stage-field/stage-field.component';
 
-const TableRow = ({ dataRow, index }) => {
+import { openLeadPopup } from '../../redux/lead-popup/lead-popup.actions';
+
+import { connect } from 'react-redux';
+
+
+const TableRow = ({ dataRow, index, openLeadPopup }) => {
+    const displayedFields = columns.filter(col => col.width);
     return (
-        <tr className={`table-row ${index % 2 ? '' : 'dark'}`}>
-            {columns.map((column, columnIndex) =>
-                column.field === 'stage' ? 
-                <td className="table-row-item"><StageField index={index} id={dataRow['id']} stage={dataRow['stage']} /></td> :
-                <td className="table-row-item border-right" key={columnIndex}>{dataRow[column.field]}</td>
-            )}
+        <tr 
+            onClick={() => openLeadPopup(dataRow)} 
+            className={`table-row ${index % 2 ? '' : 'dark'}`}
+        >
+            {displayedFields.map((column, columnIndex) => <td className={`table-row-item${columnIndex !== displayedFields.length - 1 ? ' border-right' : ''}`} key={columnIndex}>{dataRow[column.field]}</td>)}
         </tr>
     )
 }
 
-export default TableRow;
+const mapDispatchToProps = dispatch => ({
+    openLeadPopup: lead => dispatch(openLeadPopup(lead))
+});
+
+export default connect(null, mapDispatchToProps)(TableRow);

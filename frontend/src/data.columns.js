@@ -1,43 +1,81 @@
 const columns = [
     {
+        field: 'id',
+        headerName: 'ID',
+        width: null,
+        type: 'text'
+    },
+    {
         field: 'email',
         headerName: 'Correo electrónico',
-        width: '200px'
+        width: '200px',
+        type: 'email'
     },
     {
         field: 'name',
         headerName: 'Nombre',
-        width: '100px'
+        width: '100px',
+        type: 'text'
     },
     {
         field: 'last_name',
         headerName: 'Apellidos',
-        width: '200px'
+        width: '200px',
+        type: 'text'
     },
     {
         field: 'phone',
         headerName: 'Teléfono',
-        width: '100px'
+        width: '100px',
+        type: 'tel'
     },
     {
         field: 'city',
         headerName: 'Ciudad',
-        width: '150px'
+        width: null,
+        type: 'text'
     },
     {
         field: 'country',
         headerName: 'País',
-        width: '80px'
+        width: null,
+        type: 'text'
     },
     {
         field: 'service',
         headerName: 'Servicio',
-        width: '150px'
+        width: null,
+        type: 'text'
     },
     {
         field: 'stage',
         headerName: 'Estado',
-        width: '80px'
+        width: null,
+        type: 'select'
+    },
+    {
+        field: 'creation_date',
+        headerName: 'Fecha de creación',
+        width: 'auto',
+        type: 'date'
+    },
+    {
+        field: 'tracking_date',
+        headerName: 'Fecha de seguimiento',
+        width: 'auto',
+        type: 'date'
+    },
+    {
+        field: 'comments',
+        headerName: 'Comentarios',
+        width: null,
+        type: 'textarea'
+    },
+    {
+        field: 'notes',
+        headerName: 'Notas',
+        width: null,
+        type: 'textarea'
     }
 ];
 

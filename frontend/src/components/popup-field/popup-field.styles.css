@@ -1,0 +1,84 @@
+.popup-input, .popup-textarea, .popup-select {
+    position: relative;
+    margin: 15px auto;
+    display: inline-block;
+}
+
+.popup-input, .popup-select {
+    width: 50%;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.popup-textarea textarea {
+    width: 100%;
+    text-align: left;
+}
+
+.popup-input input, .popup-textarea textarea {
+    background: none;
+    color: white;
+    border: none;
+    border-bottom: 1px solid #31344d;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.popup-select select {
+    color: white;
+    font-family : inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    outline: none;
+    
+}
+
+.popup-input input {
+    width: 90%;
+}
+
+.popup-textarea {
+    width: 100%;
+}
+
+.popup-textarea textarea {
+    width: 100%;
+    height: 100px;
+    outline: none;
+    font-family: inherit;
+    resize: none;
+}
+
+.popup-input input:focus, .popup-textarea input:focus {
+    outline: none;
+}
+
+.popup-input label, .popup-textarea label {
+    position: absolute;
+    top: 0;
+    left: 11px;
+    pointer-events: none;
+    transition: all ease .2s;
+}
+
+.popup-input label.shrink, .popup-textarea label.shrink {
+    top: -15px;
+    font-size: 12px;
+}
+
+.stage-field {
+    width: auto;
+    position: absolute!important;
+    top: 0!important;
+    left: 0!important;
+    padding: 5px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.267);
+    border-radius: 5px;
+    color: white!important;
+    font-size: 20px!important;
+}
+
+.stage-field svg {
+    color: white!important;
+}

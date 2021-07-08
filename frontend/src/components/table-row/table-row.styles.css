@@ -1,3 +1,7 @@
+.table-row:hover {
+    cursor: pointer;
+}
+
 .table-row.dark {
     background-color: #1d1f2e;
 }

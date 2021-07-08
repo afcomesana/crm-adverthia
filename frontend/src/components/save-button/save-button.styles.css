@@ -1,0 +1,17 @@
+.save-button {
+    display: block;
+    margin: 40px auto;
+    border: 2px solid #31344d;
+    background-color: #1d1f2e;
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: inherit;
+    transition: all ease .3s;
+}
+
+.save-button:hover {
+    cursor: pointer;
+    background-color: #31344d;
+}
