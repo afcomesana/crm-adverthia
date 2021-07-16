@@ -4,13 +4,13 @@ class Query {
     }
 
     changeLeadStage(id, stage) {
-        return `UPDATE leads SET stage = '${stage}' WHERE id = ${id};`
+        return `UPDATE leads SET stage = '${stage}' WHERE lead_id = ${id};`
     }
 
     updateLead(lead) {
         let stmt = `UPDATE leads SET `;
         Object.keys(lead).forEach((key, index) => {
-            if (key !== 'id') stmt += lead[key] ? 
+            if (key !== 'lead_id') stmt += lead[key] ? 
                 index !== Object.keys(lead).length - 1 ? 
                     `${key} = '${lead[key]}', `
                     : `${key} = '${lead[key]}' `
@@ -18,7 +18,7 @@ class Query {
                     `${key} = NULL, `
                     : `${key} = NULL `
         });
-        stmt += `WHERE id = ${lead.id}`;
+        stmt += `WHERE lead_id = ${lead.lead_id}`;
         return stmt;
     }
 
@@ -32,6 +32,22 @@ class Query {
         });
         return stmt;
      }
+
+     getLeadNotes(leadId) {
+         return `SELECT * FROM record WHERE leads_lead_id = ${leadId} AND record_type = 'note';`;
+     }
+
+     getUserById(userId) {
+         return `SELECT * FROM workers WHERE worker_id = '${userId}';`;
+     }
+
+     insertNewWorker(id, displayName, email) {
+         return `INSERT INTO workers (worker_id, worker_name, worker_email) VALUES ('${id}', '${displayName}', '${email}');`;
+     }
+
+     insertNewNote(workerId, content, leadId) {
+        return `INSERT INTO record (workers_worker_id, leads_lead_id, record_content, record_type) VALUES ('${workerId}', '${leadId}', '${content}', 'note');`;
+    }
 };
 
 module.exports = {

@@ -95,13 +95,79 @@ app.post('/insert-new-lead', (req, res) => {
     }
 });
 
+app.post('/get-lead-notes', (req, res) => {
+    const { body: {lead_id} } = req;
+    try {
+        conn.query(databaseQuery.getLeadNotes(lead_id), (error, rows, fields) => {
+            const result = rows.map(row => Object.assign({}, row));
+            res.send(result);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/get-user-by-id', (req, res) => {
+    const { body: { user_id }} = req;
+    try {
+        conn.query(databaseQuery.getUserById(user_id), (error, rows, fields) => {
+            const result = rows.map(row => Object.assign({}, row));
+            res.send(result);
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.post('/register-new-worker', (req, res) => {
+    const { body: { id, displayName, email } } = req;
+    try {
+        conn.query(databaseQuery.insertNewWorker(id, displayName, email), (error, rows, fields) => {
+            const { affectedRows } = rows;
+            affectedRows ? res.send({
+                status: "OK",
+                responseCode: 200
+            }) : res.send({
+                status: "ERROR",
+                responseCode: 400
+            });
+        });
+    } catch (error) {
+        res.send({
+            status: "ERROR",
+            responseCode: 500,
+            errorMessage: error.message
+        });
+    }
+});
+
+app.post('/insert-new-note', (req, res) => {
+    const { body: { workerId, content, leadId } } = req;
+    try {
+        conn.query(databaseQuery.insertNewNote(workerId, content, leadId), (error, rows, fields) => {
+            const { affectedRows } = rows;
+            affectedRows ? res.send({
+                status: "OK",
+                responseCode: 200
+            }) : res.send({
+                status: "ERROR",
+                responseCode: 400
+            });
+        });
+    } catch (error) {
+        res.send({
+            status: "ERROR",
+            responseCode: 500,
+            errorMessage: error.message
+        });
+    }
+});
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/public", "index.html"))
+    res.sendFile(path.join(__dirname, "../frontend/build", "index.html"))
 });
 
 app.listen(port, error => {
     if (error) throw error;
     console.log('Server running on port ' + port);
 });
-
-
