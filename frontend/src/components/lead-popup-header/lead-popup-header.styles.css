@@ -1,0 +1,9 @@
+.lead-popup-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    left: calc(15% + 1rem);
+    top: calc(100vh - 85vh - 3.5rem);
+    width: 20%;
+}

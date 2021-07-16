@@ -8,6 +8,7 @@ import { selectCurrentUser } from '../../redux/user/user.selector';
 import { signOutStart } from '../../redux/user/user.actions';
 
 import DataSources from '../data-sources-list/data-sources.component';
+import SidebarClock from '../sidebar-clock/sidebar-clock.component';
 
 const Sidebar = ({ currentUser, signOutStart }) => {
     const { displayName } = currentUser;
@@ -19,6 +20,7 @@ const Sidebar = ({ currentUser, signOutStart }) => {
                 <button className="sign-out-button" onClick={signOutStart}>Salir</button>
             </div>
             <DataSources />
+            <SidebarClock />
         </div>
     );
 }

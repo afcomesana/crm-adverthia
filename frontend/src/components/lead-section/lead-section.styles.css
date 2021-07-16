@@ -1,0 +1,17 @@
+.lead-section {
+    width: 100%;
+    padding: .5rem 1.5rem;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: #1d1f2e;
+    transition: all ease .3s;
+}
+
+.lead-section:hover {
+    cursor: pointer;
+    background-color: #31344d;
+}
+
+.current-section {
+    background-color: #31344d;
+}

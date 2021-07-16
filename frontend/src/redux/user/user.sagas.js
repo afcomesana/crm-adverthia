@@ -5,6 +5,8 @@ import { auth, googleProvider, createUserProfileDocument, getCurrentUser } from 
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 
+import API from '../../api/axios';
+
 import {
     signInSuccess,
     signInFailure,
@@ -24,6 +26,18 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData) {
         }));
     } catch (error) {
         yield put(signInFailure(error));
+    }
+}
+
+export function* registerUserAsync({ payload }) {
+    const { id } = payload;
+    try {
+        const result = yield API.post('/get-user-by-id', {user_id: id});
+        if (!result.data.length) {
+            yield API.post('register-new-worker', payload);
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
@@ -84,11 +98,16 @@ export function* onCheckUserSession() {
     yield takeLatest(userActionTypes.CHECK_USER_SESSION, isUserAuthenticated);
 }
 
+export function* onSignInSuccess() {
+    yield takeLatest(userActionTypes.SIGN_IN_SUCCESS, registerUserAsync);
+}
+
 export function* userSagas() {
     yield all([
         call(onGoogleSignInStart),
         call(onSignInFailure),
         call(onCheckUserSession),
-        call(onSignOutStart)
+        call(onSignOutStart),
+        call(onSignInSuccess)
     ]);
 }

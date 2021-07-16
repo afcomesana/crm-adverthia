@@ -1,10 +1,10 @@
 import React from 'react';
 
-import './popup-field.styles.css';
+import './lead-info-field.styles.css';
 
 import { Select, MenuItem } from '@material-ui/core';
 
-const PopupField = ({ name, value, type, label, handleChange }) => {
+const LeadInfoField = ({ name, value, type, label, handleChange }) => {
     switch (type) {
         case 'select':
             return (
@@ -13,7 +13,6 @@ const PopupField = ({ name, value, type, label, handleChange }) => {
                         <MenuItem value="oportunidad">Oportunidad</MenuItem>
                         <MenuItem value="cliente">Cliente</MenuItem>
                     </Select>
-                
             )
         case 'textarea':
             return (
@@ -23,12 +22,18 @@ const PopupField = ({ name, value, type, label, handleChange }) => {
                 </div>
             )
         case 'date':
-            return (
-                <div className="popup-input">
-                    <input name={name} onChange={handleChange} type={type} value={value} />
-                    <label className="popup-label shrink">{label}</label>
-                </div>
-            )
+            if (name === 'creation_date') {
+                return (<div className="popup-input">
+                    <p>{value}</p>
+                </div>)
+            } else {
+                return (
+                    <div className="popup-input">
+                        <input name={name} onChange={handleChange} type={type} value={value} />
+                        <label className="popup-label shrink">{label}</label>
+                    </div>
+                )
+            }
         default:
             return (
                 <div className="popup-input">
@@ -39,4 +44,4 @@ const PopupField = ({ name, value, type, label, handleChange }) => {
     }
 }
 
-export default PopupField;
+export default LeadInfoField;

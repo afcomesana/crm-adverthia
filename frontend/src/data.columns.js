@@ -1,6 +1,6 @@
 const columns = [
     {
-        field: 'id',
+        field: 'lead_id',
         headerName: 'ID',
         width: null,
         type: 'text'
@@ -42,12 +42,6 @@ const columns = [
         type: 'text'
     },
     {
-        field: 'service',
-        headerName: 'Servicio',
-        width: null,
-        type: 'text'
-    },
-    {
         field: 'stage',
         headerName: 'Estado',
         width: null,
@@ -60,20 +54,8 @@ const columns = [
         type: 'date'
     },
     {
-        field: 'tracking_date',
-        headerName: 'Fecha de seguimiento',
-        width: 'auto',
-        type: 'date'
-    },
-    {
         field: 'comments',
         headerName: 'Comentarios',
-        width: null,
-        type: 'textarea'
-    },
-    {
-        field: 'notes',
-        headerName: 'Notas',
         width: null,
         type: 'textarea'
     }

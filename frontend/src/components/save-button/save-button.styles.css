@@ -2,11 +2,11 @@
     display: block;
     margin: 40px auto;
     border: 2px solid #31344d;
+    border-radius: 5px;
     background-color: #1d1f2e;
     color: white;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: .4rem 1rem;
+    font-size: 1.2rem;
     font-family: inherit;
     transition: all ease .3s;
 }

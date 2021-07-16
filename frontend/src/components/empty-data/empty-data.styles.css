@@ -1,0 +1,19 @@
+.empty-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 10rem;
+    height: 100%;
+}
+
+.empty-data h2 {
+    color: #363a55;
+}
+
+.empty-folder-icon {
+    color: #363a55;
+    font-size: 4rem;
+    margin: 0 auto;
+    display: block;
+}

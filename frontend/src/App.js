@@ -9,7 +9,7 @@ import Chances from './pages/chances/chances.component';
 import Candidates from './pages/candidates/candidates.component';
 import Customers from './pages/customers/customers.component';
 import PopupContainer from './components/popup-container/popup-container.component';
-import LeadPopup from './components/lead-popup/lead-popup.component';
+import LeadPopupContent from './components/lead-popup-content/lead-popup-content.component';
 
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -28,7 +28,7 @@ const App = ({currentUser, checkUserSession, isPopupOpen}) => {
             <Sidebar />
             {isPopupOpen ? (
               <PopupContainer>
-                <LeadPopup />
+                <LeadPopupContent />
               </PopupContainer>
             ) : null}
             <Switch>
